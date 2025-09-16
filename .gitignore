@@ -175,3 +175,7 @@ cython_debug/
 
 # exclude local files and folders
 local*
+
+# exclude mlflow local files
+mlruns/
+mlartifacts/
