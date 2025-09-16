@@ -15,6 +15,14 @@ class Settings(BaseSettings):
     # MLFLOW setup
     MLFLOW_TRACKING_URI: str = os.getenv('MLFLOW_TRACKING_URI', 'http://127.0.0.1:5000/')
 
+    # Postgres setup
+    POSTGRES_SCHEMA: str = os.getenv('POSTGRES_SCHEMA', 'postgres')
+    POSTGRES_USER: str = os.getenv('POSTGRES_USER', 'postgres')
+    POSTGRES_DB: str = os.getenv('POSTGRES_DB', 'postgres')
+    POSTGRES_PASSWORD: str = os.getenv('POSTGRES_PASSWORD', 'postgres')
+    POSTGRES_HOST: str = os.getenv('POSTGRES_HOST', 'localhost')
+    POSTGRES_PORT: str = os.getenv('POSTGRES_PORT', '5432')
+
     class Config():
         case_sensitive = True
 
