@@ -11,7 +11,7 @@ This project demonstrates an end-to-end Machine Learning solution for automatica
 
 ## 🎯 Business Problem
 
-Any reatil or ecommerce often struggle with:
+Any retail, ecommerce or marketplace often struggle with:
 - Manually categorizing thousands of products
 - Maintaining consistency in product categorization
 - Efficiently organizing inventory
@@ -119,8 +119,9 @@ Service health status
 - [ ] Implement A/B testing framework
 - [ ] Add model retraining triggers based on performance metrics
 - [ ] Implement data drift detection
+- [ ] Integrate alert service (Google Chat, WhatsApp, Slack) to notify when a challenger model is trained
 
 ## ✨ Author
 
-**Ivan Condori**
+**Ivan Condor**
 - GitHub: [@icondor2019](https://github.com/icondor2019)
