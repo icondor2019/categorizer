@@ -10,10 +10,10 @@ class InferenceService:
     def __init__(self):
         # Set the tracking URI to the MLflow server
         self.mlflow_uri = settings.MLFLOW_TRACKING_URI
-        self.model_name = 'RF_Categorizer_Model'
+        self.model_name = settings.MLFLOW_RF_MODEL
         self.model_version_alias = "champion"
         self.prod_model_uri = f"models:/{self.model_name}@{self.model_version_alias}"
-        self.artifact_path = "preprocessors/bow_vectorizer.pkl"
+        self.artifact_path = f"{settings.MLFLOW_ARTIFACT_PATH}/{settings.MLFLOW_RF_VECTORIZER}"
         mlflow.set_tracking_uri(uri=self.mlflow_uri)
         self.client = MlflowClient()
 
