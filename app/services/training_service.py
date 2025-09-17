@@ -1,6 +1,7 @@
 import re
 import nltk
 import mlflow
+import pickle
 import traceback
 import pandas as pd
 from loguru import logger
@@ -31,14 +32,15 @@ class RFCategorizer:
         # MLflow settings
         self.mlflow_uri = settings.MLFLOW_TRACKING_URI
         self.mlflow_experiment = 'RF_Categorizer_Experiment'
-        self.registered_model_name = 'RF_Categorizer_Model'
+        self.registered_model_name = settings.MLFLOW_RF_MODEL
         self.artifact_name = 'Random Forest Classifier CV 5'
+        self.vectorizer_file = settings.MLFLOW_RF_VECTORIZER
+        self.artifact_path = settings.MLFLOW_ARTIFACT_PATH
 
     def get_input_data(self):
         """Fetch input data from the database"""
         rows, columns = self.__training_repository.get_input_rf_categorizer()
         df = pd.DataFrame(rows, columns=columns)
-        # df = pd.read_csv('files/scraping_rf_v1.csv')
         return df
 
     def preprocess_text(self, text):
@@ -184,6 +186,10 @@ class RFCategorizer:
                     sk_model=self.model,
                     name=self.artifact_name,
                     registered_model_name=self.registered_model_name)
+
+                with open(self.vectorizer_file, "wb") as file:
+                    pickle.dump(self.vectorizer, file)
+                mlflow.log_artifact(self.vectorizer_file, artifact_path=self.artifact_path)
             else:
                 logger.info('Logging model in MLflow without registering (not a challenger)')
                 mlflow.sklearn.log_model(
@@ -221,4 +227,4 @@ class RFCategorizer:
                 'success': False,
                 'error': str(e)
             }
-        logger.info(summary)
+        logger.debug(summary)

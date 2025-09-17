@@ -14,6 +14,9 @@ class Settings(BaseSettings):
 
     # MLFLOW setup
     MLFLOW_TRACKING_URI: str = os.getenv('MLFLOW_TRACKING_URI', 'http://127.0.0.1:5000/')
+    MLFLOW_ARTIFACT_PATH: str = os.getenv('MLFLOW_ARTIFACT_PATH', 'preprocessors')
+    MLFLOW_RF_MODEL: str = os.getenv('MLFLOW_RF_MODEL', 'RF_Categorizer_Model')
+    MLFLOW_RF_VECTORIZER: str = os.getenv('MLFLOW_RF_VECTORIZER', 'bow_vectorizer.pkl')
 
     # Postgres setup
     POSTGRES_SCHEMA: str = os.getenv('POSTGRES_SCHEMA', 'postgres')
