@@ -1,0 +1,43 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# VS Code
+.vscode/
+
+# Local development files
+local_files/
+*.ipynb
+*.csv
+
+# Docker
+.docker/
+
+# System Files
+.DS_Store
+Thumbs.db
