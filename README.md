@@ -11,7 +11,7 @@ This project demonstrates an end-to-end Machine Learning solution for automatica
 
 ## 🎯 Business Problem
 
-Hardware stores often struggle with:
+Any reatil or ecommerce often struggle with:
 - Manually categorizing thousands of products
 - Maintaining consistency in product categorization
 - Efficiently organizing inventory
@@ -24,7 +24,8 @@ This solution automates the categorization process, reducing manual effort and e
 The project implements a modular architecture with three main components:
 
 ### 1. Training Pipeline 🚂
-- **Data Preprocessing**: 
+- **Data Preprocessing**:
+  - Getting input data from Posgrest database with a robust pipeline
   - Text cleaning and normalization
   - Stopword removal (Spanish & English)
   - Lemmatization for better feature extraction
@@ -56,16 +57,10 @@ Built with FastAPI, offering:
 
 ## ⚡ Challenges Overcome
 
-- Model Versioning (MLflow): Implemented automatic comparison between retrained and production models using the same test set. Only models with better F1-score are promoted as challengers for potential production.
-- Robust Validation (Pydantic): Ensured reliable request/response handling through strict schema validation, reducing errors and improving API consistency.
-- Async Retraining Pipeline: Designed retraining as an asynchronous background task, keeping the API responsive even during long training processes.
-
-## 📊 Model Performance
-
-The current model achieves:
-- Accuracy: ~90% across all categories
-- Macro F1-Score: 0.89
-- Fast inference time: <100ms per request
+- **Model Versioning (MLflow):** Implemented automatic comparison between retrained and production models using the same test set. Only models with better F1-score are promoted as challengers for potential production.
+- **Robust Validation (Pydantic):** Ensured reliable request/response handling through strict schema validation, reducing errors and improving API consistency.
+- **Async Retraining Pipeline:** Designed retraining as an asynchronous background task, keeping the API responsive even during long training processes.
+- **Dynamic Data Source (Postgres)**: Transitioned from static CSV input to a PostgreSQL-based pipeline, making it easier to feed new information into the training process.  
 
 ## 🔄 API Endpoints
 
