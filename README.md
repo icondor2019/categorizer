@@ -20,9 +20,10 @@ Any retail, ecommerce or marketplace often struggle with:
 This solution automates the categorization process, reducing manual effort and ensuring consistent categorization across the product catalog.
 
 ## 🔍 Solution Architecture
+### ML system design
+![img alt](https://github.com/icondor2019/categorizer/blob/main/classifier_ml_system.jpg?raw=true)
 
 The project implements a modular architecture with three main components:
-
 ### 1. Training Pipeline 🚂
 - **Data Preprocessing**:
   - Getting input data from Posgrest database with a robust pipeline
